@@ -1,0 +1,22 @@
+<ons-navigator var="myNavigator">
+    <ons-toolbar>
+        <div class="center">Piccoly</div>
+    </ons-toolbar>
+    
+    <div style="text-align: center" ng-controller="KidsController">
+     <br />
+     <ons-list>
+        <ons-list-item modifier="chevron" class="list-item-container" ng-repeat="kid in kids" ng-click="details(kid)">
+          <div class="list-item-left">
+            <img src="{{kid.avatar}}" class="avator">
+          </div>
+          <div class="list-item-right">
+            <div class="list-item-content">
+              <div class="name">{{kid.name}}</div>
+              <span class="desc">{{kid.desc}}</span>
+            </div>
+          </div>
+        </ons-list-item>
+    </ons-list>    
+    </div>
+</ons-navigator> 

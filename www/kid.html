@@ -1,0 +1,55 @@
+<div ng-controller="KidController" ng-class="{blur:spinner.on}">
+    <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">{{kid.name}}</div>
+    </ons-toolbar>
+        <div style="text-align: center;">
+            <img src="{{kid.avatar}}" style="max-width:300px; max-height:200px;">        
+        </div>
+        
+        <ons-list style="border-top: none">
+          <ons-list-item style="line-height: 1; padding: 0;">
+              <ons-row class="action">
+                <ons-col class="action-col" ng-click="takePic()">
+                  <div class="action-icon"><ons-icon icon="ion-camera"></ons-icon></div>
+                  <div class="action-label">Photo</div>
+                </ons-col>
+    
+                <ons-col class="action-col" ng-click="uploadPic()">
+                  <div class="action-icon"><ons-icon icon="ion-paperclip"></ons-icon></div>
+                  <div class="action-label">Upload</div>
+                </ons-col>
+                
+                <ons-col class="action-col" ng-click="email()">
+                  <div class="action-icon"><ons-icon icon="ion-email"></ons-icon></div>
+                  <div class="action-label">Email</div>
+                </ons-col>
+    
+                <ons-col class="action-col" ng-click="notes()">
+                  <div class="action-icon"><ons-icon icon="ion-compose"></ons-icon></div>
+                  <div class="action-label">Notes</div>
+                </ons-col>
+              </ons-row>
+          </ons-list-item>             
+        </ons-list>
+
+        <ons-list style="margin-top: 12px;">
+          <ons-list-item modifier="chevron" ng-click="allphotos()">
+            <div class="prop-desc">
+              <ons-icon icon="ion-images"></ons-icon>
+              All photos
+            </div>
+          </ons-list-item>
+
+          <ons-list-item modifier="chevron" ng-click="contacts()">
+            <div class="prop-desc">
+              <ons-icon icon="fa-mobile"></ons-icon>
+              Contact details
+            </div>
+          </ons-list-item>
+        </ons-list>
+    <div class="spinner-container" ng-show="spinner.on">
+        <ons-icon class="spinner" icon="spinner" size="40px" spin="true"  fixed-width="true"></ons-icon>      
+    </div>
+</div>
+

@@ -1,0 +1,50 @@
+<div ng-controller="AllPhotosController">
+    <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">
+            Photos for {{kid.name}}
+        </div>
+    </ons-toolbar>       
+            
+    <ons-list>
+        <div ng-repeat="contact in family.contacts" ng-show="!isEdit">
+          <ons-list-header>{{contact.name}}</ons-list-header>
+          <ons-list-item>Relationship: {{contact.relationship}}</ons-list-item>
+          <ons-list-item>Phone: {{contact.phone}}</ons-list-item>
+          <ons-list-item>Email: {{contact.email}}</ons-list-item>                         
+        </div>          
+    </ons-list>
+    
+    <ons-list>
+        <ons-list-item class="list-item-container" ng-repeat="image in images">
+          <ons-row>
+            <ons-col width="95px">
+              <img src="{{image.url}}" class="thumbnail">
+            </ons-col>
+            <ons-col>
+              <div class="name">
+                {{image.title}}
+              </div>
+              <div class="location">
+                {{image.createdDateTime | date}}
+              </div>              
+            
+                <ons-row>
+                    <ons-col><button class="button button--outline" ng-click="setTitle(image)">Set Title</button></ons-col>        
+                    <ons-col><button class="button button--outline"  ng-click="setAvatar(image)">Avatar</button></ons-col>        
+                </ons-row>            
+            </ons-col>
+            
+          </ons-row>
+        </ons-list-item>
+      </ons-list>
+      
+      <div ng-if="images.length == 0">
+          No photos.
+      </div>
+    
+              
+      
+</div>
+
+

@@ -1,0 +1,32 @@
+<div ng-controller="EmailController">
+    <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">Select email recipients</div>
+    </ons-toolbar>       
+        
+    <ul class="list">
+      <li class="list__item" ng-repeat="contact in family.contacts">
+          <label class="checkbox">
+              <input type="checkbox" ng-model="contact.selected">
+              <div class="checkbox__checkmark"></div>
+              {{contact.name}}
+            </label>
+      </li>      
+    </ul>
+    
+  <div style="text-align: center; padding: 10px 0;">
+    <input type="text" class="text-input" placeholder="Subject" ng-model="subject" style="width: 95%;">
+  </div>
+  
+  <div style="text-align: center; padding: 0 0 10px 0;">
+    <textarea class="textarea" style="width:95%; height:150px;" ng-model="body" placeholder="Body"></textarea>
+  </div>
+  
+  <section style="padding: 0 8px 8px">
+                <ons-button modifier="large"
+                    ng-click="send()">Send</ons-button>
+  </section>
+    
+</div>
+
+

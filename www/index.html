@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="components/loader.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/my.css">
+     <script>
+        angular.module('myApp', ['onsen']);
+    </script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainController" ng-class="{blur:spinner.on}">
+
+    <ons-tabbar var="tabbar" ng-if="user.userInfo != null">    
+        <ons-tabbar-item
+            icon="home"
+            label="Home"
+            page="page1.html"
+            active="true"></ons-tabbar-item>
+        <ons-tabbar-item
+            icon="gear"
+            label="Settings"
+            page="page3.html"
+            ></ons-tabbar-item>
+    </ons-tabbar>
+    
+    <ons-page ng-show="!user.userInfo">
+        <ons-toolbar>
+          <div class="center">Piccoly</div>
+        </ons-toolbar>    
+        <div style="text-align: center">    
+            <br>
+            <section style="padding: 8px">
+                <input type="text" class="text-input" ng-model="email" placeholder="Email Address" style="display: block; width: 100%">
+            </section>            
+            <section style="padding: 8px">
+                <input type="password" class="text-input" ng-model="password" placeholder="Password" style="display: block; width: 100%">
+            </section>
+            
+            <section style="padding: 0 8px 8px">
+                <label class="checkbox">
+                  <input type="checkbox" ng-model="rememberMe">
+                  <div class="checkbox__checkmark"></div>
+                  Remember me
+                </label>
+            </section>
+            
+            <section style="padding: 0 8px 8px">
+                <ons-button modifier="large"
+                    ng-click="login()" ng-attr-disabled="{{(!password|| !email)}}">Login</ons-button>
+            </section>
+       
+            <div class="error">{{error}}</div>
+        </div>
+    </ons-page>
+    
+    <div class="spinner-container" ng-show="spinner.on">
+        <ons-icon class="spinner" icon="spinner" size="40px" spin="true"  fixed-width="true"></ons-icon>      
+    </div>
+</body>
+</html>

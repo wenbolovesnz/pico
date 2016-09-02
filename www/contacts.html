@@ -1,0 +1,50 @@
+<div ng-controller="ContactsController">
+    <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">
+            Contact details for {{kid.name}}
+        </div>
+    </ons-toolbar>       
+            
+    <ons-list>
+        <div ng-repeat="contact in family.contacts" ng-show="!isEdit">
+          <ons-list-header>{{contact.name}}</ons-list-header>
+          <ons-list-item>Relationship: {{contact.relationship}}</ons-list-item>
+          <ons-list-item>Phone: {{contact.phone}}</ons-list-item>
+          <ons-list-item>Email: {{contact.email}}</ons-list-item>                         
+        </div>          
+    </ons-list>
+    
+    <div ng-repeat="contact in family.contacts" ng-show="isEdit">
+        {{contact.name}}
+        <ul class="list">
+          <li class="list__item">
+              <div style="text-align: center; padding: 10px 0;">
+                    <input type="text" class="text-input" placeholder="Relationship" ng-model="contact.relationship" style="width: 95%;">
+              </div>
+          </li>
+          <li class="list__item">
+              <div style="text-align: center; padding: 10px 0;">
+                    <input type="text" class="text-input" placeholder="Phone" ng-model="contact.phone" style="width: 95%;">
+              </div>
+          </li>
+          <li class="list__item">
+              <div style="text-align: center; padding: 10px 0;">
+                    <input type="text" class="text-input" placeholder="Email" ng-model="contact.email" style="width: 95%;">
+              </div>
+          </li>
+        </ul>         
+    </div>
+                
+    <section style="padding: 8px 8px 8px" ng-show="!isEdit">            
+        <ons-button modifier="large"
+            ng-click="isEdit = true">Edit</ons-button>
+    </section>
+    <section style="padding: 8px 8px 8px" ng-show="isEdit">            
+        <ons-button modifier="large"
+            ng-click="saveContacts()">Save</ons-button>
+    </section>
+      
+</div>
+
+

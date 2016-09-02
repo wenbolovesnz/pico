@@ -1,0 +1,34 @@
+<div ng-controller="NotesController">
+    <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">Notes for {{kid.name}}</div>
+    </ons-toolbar>        
+    
+    <div style="text-align: center; padding: 10px 0 10px 0;" ng-show="!isEdit">
+        {{kid.notes}}        
+        <div ng-show="!kid.notes">
+            No notes, please click Edit notes to add some.            
+        </div>
+    </div>
+    
+    
+    <section style="padding: 0 8px 8px" ng-show="!isEdit">            
+        <ons-button modifier="large"
+            ng-click="isEdit = true">Edit</ons-button>
+    </section>
+    
+    <div style="text-align: center; padding: 10px 0 10px 0;" ng-show="isEdit">
+        <textarea class="textarea" style="width:95%; height:150px;" ng-model="kid.notes" placeholder="Notes"></textarea>
+    </div>  
+    
+    
+    <section style="padding: 0 8px 8px" ng-show="isEdit">            
+        <ons-button modifier="large"
+            ng-click="save()" ng-attr-disabled="{{!kid.notes}}">Save</ons-button>
+    </section>
+    
+    
+    
+</div>
+
+
